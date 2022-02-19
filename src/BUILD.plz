@@ -1,0 +1,21 @@
+filegroup(
+    name = "source",
+    srcs = glob(
+        [
+            "*/*.csproj",
+            "*/*.cs",
+        ],
+        exclude = [
+            "**/obj/**",
+            "**/bin/**",
+            "packages/**"
+        ],
+    ),
+)
+
+genrule(
+    name = "microservices",
+    outs = ["cached_result/"],
+    cmd = "cd /workspaces/plz-build-project/src/ && dotnet build please.build.csproj",
+   
+)

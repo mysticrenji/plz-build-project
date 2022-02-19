@@ -1,0 +1,19 @@
+; Please config file See https://please.build/config.html
+
+[Please]
+Version = 16.18.0
+
+[Parse]
+BuildFileName = "BUILD.plz"
+BlacklistDirs = "node_modules"
+
+[Build]
+ExitOnError = True
+
+[Cache]
+HttpUrl = "https://plz-build-storage.s3.us-west-2.amazonaws.com/"
+StoreCommand = "aws s3 cp - s3://plz-build-storage.s3.us-west-2/$CACHE_KEY"
+
+[Display]
+SystemStats = True
+
